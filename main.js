@@ -1,8 +1,15 @@
 let playerScore = 0;
 let computerScore = 0;
 
+function playGame() {
 
-function playRound(humanChoice, computerChoice) {
+    for (i = 0; i < 5; i++) {
+        playRound(getHumanChoice(), getComputerChoice());
+    }
+}
+
+function playRound(humanChoice, computerChoice) {  
+    console.log('human: ' + humanChoice + " | " + 'computer: ' + computerChoice) 
     if (humanChoice == 'rock' && computerChoice == 'scissors') {
         // Human wins
         console.log('human wins!')
@@ -27,19 +34,21 @@ function playRound(humanChoice, computerChoice) {
         console.log('computer wins!')
         computerScore++;
     }
+
+    console.log('human: ' + playerScore.toString() +' | ' + 'computer: ' + computerScore.toString());
 }
 
 
 function getComputerChoice() {
     num = Math.random();
     if (num >= 0.6) {
-        return "Rock";
+        return "rock";
     }
     else if (num >= 0.3) {
-        return "Paper";
+        return "paper";
     }
     else if (num >= 0) {
-        return "Scissors";
+        return "scissors";
     }
 
 }
@@ -56,3 +65,5 @@ function getHumanChoice() {
         return "rock";
     }
 }
+
+playGame();
