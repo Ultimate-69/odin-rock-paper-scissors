@@ -1,3 +1,35 @@
+let playerScore = 0;
+let computerScore = 0;
+
+
+function playRound(humanChoice, computerChoice) {
+    if (humanChoice == 'rock' && computerChoice == 'scissors') {
+        // Human wins
+        console.log('human wins!')
+        playerScore++;
+    }
+    else if (humanChoice == 'paper' && computerChoice == 'rock') {
+        // Human wins
+        console.log('human wins!')
+        playerScore++;
+    }
+    else if (humanChoice == 'scissors' && computerChoice == 'paper') {
+        // Human wins
+        console.log('human wins!')
+        playerScore++;
+    }
+    else if (humanChoice == computerChoice) {
+        // Tie
+        console.log('tie!')
+    }
+    else {
+        // Human Loses
+        console.log('computer wins!')
+        computerScore++;
+    }
+}
+
+
 function getComputerChoice() {
     num = Math.random();
     if (num >= 0.6) {
