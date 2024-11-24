@@ -7,6 +7,7 @@ const scissors = document.querySelector('#scissors');
 
 const choice = document.querySelector('#choice');
 const winner = document.querySelector('#winner');
+const overall = document.querySelector('#overall');
 const score = document.querySelector('#score');
 
 rock.addEventListener('click', () => playRound('rock', getComputerChoice()))
@@ -14,6 +15,22 @@ paper.addEventListener('click', () => playRound('paper', getComputerChoice()))
 scissors.addEventListener('click', () => playRound('scissors', getComputerChoice()))
 
 function playRound(humanChoice, computerChoice) {  
+
+    if (playerScore >= 5)
+    {
+        playerScore = 0;
+        computerScore = 0;
+        overall.textContent = "Player scores 5, player won this game!";
+    }
+    else if (computerScore >= 5)
+    {
+        playerScore = 0;
+        computerScore = 0;
+        overall.textContent = "Computer scores 5, computer won this game!";
+    }
+    else {
+        overall.textContent = ''
+    }
     choice.textContent = 'human: ' + humanChoice + " | " + 'computer: ' + computerChoice
     if (humanChoice == 'rock' && computerChoice == 'scissors') {
         // Human wins
